@@ -91,7 +91,7 @@ knockpy $domain >> found.txt
 echo "-------------------------------------------------"
 echo -e " ${RED} [6] amass is running.... ${RESET}"
 echo "-------------------------------------------------"
-amass enum -d instacart.com  -brute -o $domain/found.txt
+amass enum -d $domain  -brute -o $domain/found.txt
 
 echo "-------------------------------------------------"
 echo -e  " ${RED} [7] checking domains.... ${RESET} "
