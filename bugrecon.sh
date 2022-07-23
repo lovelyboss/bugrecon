@@ -8,11 +8,11 @@ RESET="\033[0m"
 if [ "$1" == "" ]
 then
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo -e " $RED !!! LovelyBoss !!! $RESET"
+echo -e " $RED !!! bugrecon !!! $RESET"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo
 echo -e "":-" $YELLOW Please enter a domain. $RESET "
-echo -e "":-" $YELLOW Syntex: ./bugrecon example.com $RESET "
+echo -e "":-" $YELLOW Syntex: ./LovelyBoss example.com $RESET "
 echo
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 else
@@ -36,9 +36,9 @@ echo -e "$YELLOW Press Enter To Continue... $RESET"
 read upd
 clear
 echo -e "\e[1;31m"
-figlet LovelyBoss
+figlet bugrecon
 echo -e "\e[1;34m Created By \e[1;32m"
-toilet -f slant -F gay bugrecon
+toilet -f slant -F gay LovelyBoss
 echo 
 echo -e "\e[1;34m This Script Has Created by Lovelyboss For Finding Sub-Domains. this is only for educational purpose not for to harm any website.\e[1;32m"
 
@@ -56,10 +56,7 @@ fi
 
 if [ ! -d "subdomains" ];then
  	mkdir $subdomain_path
-fi
 
-if [ ! -d "screenshots" ];then
- 	mkdir $screenshot_path
 fi
 
 echo "-------------------------------------------------"
@@ -73,25 +70,24 @@ echo "-------------------------------------------------"
 subfinder -d $domain > $subdomain_path/found.txt
 
 echo "-------------------------------------------------"
-echo -e " ${RED} [3] crt is running.... ${RESET}"
+echo -e " ${RED} [3] crt permetion.... ${RESET}"
 echo "-------------------------------------------------"
-chmod +x crt.sh ${RESET}
+chmod +x crt.sh
+
+echo "-------------------------------------------------"
+echo -e " ${RED} [4] crt is running.... ${RESET}"
+echo "-------------------------------------------------"
 ./crt.sh $domain > $subdomain_path/found.txt
 
 echo "-------------------------------------------------"
-echo -e " ${RED} [4] assestfinder is running.... ${RESET}"
+echo -e " ${RED} [5] assestfinder is running.... ${RESET}"
 echo "-------------------------------------------------"
 assetfinder  $domain >> $subdomain_path/found.txt
 
 echo "-------------------------------------------------"
-echo -e " ${RED} [5] knockpy is running.... ${RESET}"
+echo -e " ${RED} [6] knockpy is running.... ${RESET}"
 echo "-------------------------------------------------"
 knockpy $domain >> found.txt
-
-echo "-------------------------------------------------"
-echo -e " ${RED} [6] amass is running.... ${RESET}"
-echo "-------------------------------------------------"
-amass enum -d $domain  -brute -o $domain/found.txt
 
 echo "-------------------------------------------------"
 echo -e  " ${RED} [7] checking domains.... ${RESET} "
