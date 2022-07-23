@@ -56,8 +56,12 @@ fi
 
 if [ ! -d "subdomains" ];then
  	mkdir $subdomain_path
-
 fi
+
+if [ ! -d "screenshot" ];then
+ 	mkdir $screenshot_path
+fi
+
 
 echo "-------------------------------------------------"
 echo -e " $RED [1] whois is running.... $RESET" 
@@ -69,36 +73,36 @@ echo -e " ${RED} [2] subfinder is running.... ${RESET}"
 echo "-------------------------------------------------"
 subfinder -d $domain > $subdomain_path/found.txt
 
-echo "-------------------------------------------------"
-echo -e " ${RED} [3] crt permetion.... ${RESET}"
-echo "-------------------------------------------------"
-chmod +x crt.sh
+ echo "-------------------------------------------------"
+ echo -e " ${RED} [3] crt permetion.... ${RESET}"
+ echo "-------------------------------------------------"
+ chmod +x crt.sh
 
-echo "-------------------------------------------------"
-echo -e " ${RED} [4] crt is running.... ${RESET}"
-echo "-------------------------------------------------"
-./crt.sh $domain > $subdomain_path/found.txt
+ echo "-------------------------------------------------"
+ echo -e " ${RED} [4] crt is running.... ${RESET}"
+ echo "-------------------------------------------------"
+ ./crt.sh $domain > $subdomain_path/found.txt
 
-echo "-------------------------------------------------"
-echo -e " ${RED} [5] assestfinder is running.... ${RESET}"
-echo "-------------------------------------------------"
-assetfinder  $domain >> $subdomain_path/found.txt
+ echo "-------------------------------------------------"
+ echo -e " ${RED} [5] assestfinder is running.... ${RESET}"
+ echo "-------------------------------------------------"
+ assetfinder  $domain >> $subdomain_path/found.txt
 
-echo "-------------------------------------------------"
-echo -e " ${RED} [6] knockpy is running.... ${RESET}"
-echo "-------------------------------------------------"
-knockpy $domain >> found.txt
+ echo "-------------------------------------------------"
+ echo -e " ${RED} [6] knockpy is running.... ${RESET}"
+ echo "-------------------------------------------------"
+ knockpy $domain >> found.txt
 
-echo "-------------------------------------------------"
-echo -e  " ${RED} [7] checking domains.... ${RESET} "
-echo "-------------------------------------------------"
-cat  $subdomain_path/found.txt | grep $domain | sort -u | httprobe -p -prefer-https | grep https | sed 's/https\?:\/\///' | tee -a  $subdomain_path/finaldomains.txt
+ echo "-------------------------------------------------"
+ echo -e  " ${RED} [7] checking domains.... ${RESET} "
+ echo "-------------------------------------------------"
+ cat  $subdomain_path/found.txt | grep $domain | sort -u | httprobe -p -prefer-https | grep https | sed 's/https\?:\/\///' | tee -a  $subdomain_path/finaldomains.txt
 
 echo "--------------------------------------------------------------------"
 echo -e " ${RED} [8] Taking screenshot please wait.... ${RESET} "
 echo "--------------------------------------------------------------------"
 echo
-eyewitness --web -f $subdomain_path/finaldomains.txt -d $screenshot_path/
+eyewitness --web -f $subdomain_path/found.txt -d $screenshot_path/
 
 fi
 fi
