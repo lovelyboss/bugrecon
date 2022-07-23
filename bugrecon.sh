@@ -8,11 +8,11 @@ RESET="\033[0m"
 if [ "$1" == "" ]
 then
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-echo -e " $RED !!! The_Serpent !!! $RESET"
+echo -e " $RED !!! LovelyBoss !!! $RESET"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo
 echo -e "":-" $YELLOW Please enter a domain. $RESET "
-echo -e "":-" $YELLOW Syntex: ./serp_hunt.sh example.com $RESET "
+echo -e "":-" $YELLOW Syntex: ./bugrecon example.com $RESET "
 echo
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 else
@@ -30,15 +30,15 @@ sudo apt install knockpy
 sudo apt -y install amass
 sudo apt install httprobe
 sudo apt-get -y install eyewitness
-echo -e "$RED This Script Was Made By Lovelyboss >update.theserpent7777 $RESET"
+echo -e "$RED This Script Was Made By LovelyBoss >update.theserpent7777 $RESET"
 echo -e "$RED Requirements Installed.... $RESET"
 echo -e "$YELLOW Press Enter To Continue... $RESET"
 read upd
 clear
 echo -e "\e[1;31m"
-figlet Lovelyboss
+figlet LovelyBoss
 echo -e "\e[1;34m Created By \e[1;32m"
-toilet -f slant -F gay The_Serpent
+toilet -f slant -F gay bugrecon
 echo 
 echo -e "\e[1;34m This Script Has Created by Lovelyboss For Finding Sub-Domains. this is only for educational purpose not for to harm any website.\e[1;32m"
 
@@ -75,6 +75,7 @@ subfinder -d $domain > $subdomain_path/found.txt
 echo "-------------------------------------------------"
 echo -e " ${RED} [3] crt is running.... ${RESET}"
 echo "-------------------------------------------------"
+chmod +x crt.sh ${RESET}
 ./crt.sh $domain > $subdomain_path/found.txt
 
 echo "-------------------------------------------------"
