@@ -102,7 +102,7 @@ echo "--------------------------------------------------------------------"
 echo -e " ${RED} [8] Taking screenshot please wait.... ${RESET} "
 echo "--------------------------------------------------------------------"
 echo
-eyewitness --web -f $subdomain_path/found.txt -d $screenshot_path/
+eyewitness --web -f $subdomain_path/finaldomains.txt -d $screenshot_path/
 
 fi
 fi
