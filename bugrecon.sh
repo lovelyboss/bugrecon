@@ -66,12 +66,12 @@ fi
 echo "-------------------------------------------------"
 echo -e " $RED [1] whois is running.... $RESET" 
 echo "-------------------------------------------------"
-whois $1 > $info_path/whois.txt
+whois $1 >> $info_path/whois.txt
 
 echo "-------------------------------------------------"
 echo -e " ${RED} [2] subfinder is running.... ${RESET}"
 echo "-------------------------------------------------"
-subfinder -d $domain > $subdomain_path/found.txt
+subfinder -d $domain >> $subdomain_path/found.txt
 
  echo "-------------------------------------------------"
  echo -e " ${RED} [3] crt permetion.... ${RESET}"
@@ -81,7 +81,7 @@ subfinder -d $domain > $subdomain_path/found.txt
  echo "-------------------------------------------------"
  echo -e " ${RED} [4] crt is running.... ${RESET}"
  echo "-------------------------------------------------"
- ./crt.sh $domain > $subdomain_path/found.txt
+ ./crt.sh $domain >> $subdomain_path/found.txt
 
  echo "-------------------------------------------------"
  echo -e " ${RED} [5] assestfinder is running.... ${RESET}"
